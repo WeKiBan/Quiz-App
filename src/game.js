@@ -16,7 +16,6 @@ class Game {
   checkAnswer(target) {
     const answerGiven = target.textContent;
     const correctAnswer = this.questions[this.questionNumber].correct_answer;
-    ui.showAnswerAlert(correctAnswer);
     ui.addBtnClasses(target, correctAnswer);
     if (answerGiven === correctAnswer) {
       this.score++;
@@ -24,7 +23,9 @@ class Game {
     } else {
       ui.playSoundEffect('incorrect');
     }
+    ui.updateScore(this.score);
   }
+  
 }
 
 export const game = new Game();

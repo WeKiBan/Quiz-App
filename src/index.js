@@ -14,6 +14,14 @@ window.addEventListener('DOMContentLoaded', function (e) {
 ui.answerBtnGroup.addEventListener('click', (e)=> {
   if(e.target.classList.contains('answer-btn')){
     game.checkAnswer(e.target);
+    ui.showAndHideNextQuestionButton();
   }
   e.preventDefault();
+})
+
+ui.nextQuestion.addEventListener('click', function(){
+  game.questionNumber++
+  ui.removeBtnClasses();
+  ui.populateQuestionUi(game.questions, game.questionNumber);
+  ui.showAndHideNextQuestionButton();
 })
