@@ -8,9 +8,10 @@
 
 .container {
   max-width: 900px;
+  margin-top: -3rem;
 }
 
-.setting-btn{
+.setting-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -21,11 +22,11 @@
   height: 30vh;
 }
 
-.image-div{
+.image-div {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius:1rem;
+  border-radius: 1rem;
   margin: 0.2rem;
   color: rgb(255, 255, 255);
   font-size: 4vw;
@@ -33,39 +34,70 @@
   transition: all 0.2s ease-in-out;
 }
 
-.image-div:hover{
+.image-div:hover {
   color: rgba(255, 255, 255, 1);
   box-shadow: 0 5px 15px rgb(255, 255, 255);
   border: 1px solid;
 }
 
 .science {
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/sci_nat.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./images/sci_nat.jpg');
   background-size: cover;
   background-position: center center;
 }
 
 .film {
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/film.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./images/film.jpg');
   background-size: cover;
   background-position: center center;
 }
 
 .general {
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/general.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./images/general.jpg');
   background-size: cover;
   background-position: center center;
 }
 
 .sports {
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/sports.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./images/sports.jpg');
   background-size: cover;
   background-position: center center;
 }
 
-.question{
-  height:20vh;
+.question {
+  height: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.progress-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: -0.5px;
+}
+
+.answer-btn-group {
+  position: relative;
+}
+
+.next-question {
+  position: absolute;
+}
+
+.answer-btn:disabled{
+  opacity: 1;
 }
