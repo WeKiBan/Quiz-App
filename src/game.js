@@ -4,11 +4,13 @@ class Game {
   constructor() {
     this.questions;
     this.questionNumber = 0;
+    this.questionAmount;
     this.score = 0;
   }
-  
+
   initiateGame(questions) {
     this.questions = questions.results;
+    this.questionAmount = ui.questionsAmount.value;
   }
   nextQuestion() {
     this.questionNumber++;
@@ -25,7 +27,6 @@ class Game {
     }
     ui.updateScore(this.score);
   }
-  
 }
 
 export const game = new Game();

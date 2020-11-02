@@ -9,6 +9,11 @@ class UI {
     this.progressText = document.querySelector('.progress-text');
     this.nextQuestion = document.querySelector('.next-question');
     this.score = document.querySelector('.score');
+    this.questionsAmount = document.querySelector('#question-amount');
+    this.difficulty = document.querySelector('#difficulty');
+    this.categorySelections = Array.from(document.querySelectorAll('.image-title'));
+    this.startScreen = document.querySelector('.start-screen-state');
+    this.gameplayScreen = document.querySelector('.game-play-state');
   }
 
   populateQuestionUi(question, questionNum) {
@@ -76,6 +81,12 @@ class UI {
       this.nextQuestion.classList.add('hide');
     }
   }
+  hideShowStartScreen(){
+    this.startScreen.classList.toggle('display-none');
+  }
+  hideShowGameplayScreen(){
+    this.gameplayScreen.classList.toggle('display-none');
+  }
   updateProgressBar() {
     const percentage =
       ((game.questionNumber + 1) / game.questions.length) * 100;
@@ -86,6 +97,7 @@ class UI {
       game.questions.length
     }`;
   }
+  
 }
 
 export const ui = new UI();
