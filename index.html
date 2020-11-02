@@ -16,30 +16,29 @@
   <div class="container p-4 text-center">
     <!-- Start screen -->
     <div class="start-screen-state">
-      <a class="setting-btn" href=""><i class="fas fa-cog"></i></a>
       <h1 class="mb-4">QuizUp</h1>
       <div class="image-container">
         <div class="row image-row">
           <div class="science col image-div">
-            <p class="image-title">Science & nature</p>
+            <p class="image-title" data-category="17">Science & nature</p>
           </div>
           <div class="sports col image-div">
-            <p class="image-title">Sports</p>
+            <p class="image-title" data-category="21">Sports</p>
           </div>
         </div>
         <div class="row image-row">
           <div class="general col image-div">
-            <p class="image-title">General Knowledge</p>
+            <p class="image-title" data-category="9">General Knowledge</p>
           </div>
           <div class="film col image-div">
-            <p class="image-title">Film</p>
+            <p class="image-title" data-category="11">Film</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- GAME PLAY  -->
-    <div class="game-play-state">
+    <div class="game-play-state display-none">
       <div class="row d-flex align-items-center">
         <div class="col-6">
 
@@ -74,6 +73,47 @@
         <button class="next-question btn-block btn btn-outline-danger mt-3 hide">Next Question</button>
       </div>
 
+    </div>
+  </div>
+
+  <!-- Settings modal -->
+  <a class="setting-btn" href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-cog"></i></a>
+
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Game Settings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="question-amount">Number of Questions</label>
+              <input type="number" class="form-control" id="question-amount" placeholder="Number of Questions"
+                value="10">
+            </div>
+            <div class="form-group">
+              <label for="difficulty">Difficulty</label>
+              <select class="form-control" id="difficulty" value="Any">
+                <option>Any</option>
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+              </select>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="reset btn btn-info">reset to default</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Save and close</button>
+        </div>
+      </div>
     </div>
   </div>
 
