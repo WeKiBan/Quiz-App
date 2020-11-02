@@ -11,9 +11,12 @@ class UI {
     this.score = document.querySelector('.score');
     this.questionsAmount = document.querySelector('#question-amount');
     this.difficulty = document.querySelector('#difficulty');
-    this.categorySelections = Array.from(document.querySelectorAll('.image-title'));
+    this.categorySelections = Array.from(
+      document.querySelectorAll('.image-title')
+    );
     this.startScreen = document.querySelector('.start-screen-state');
     this.gameplayScreen = document.querySelector('.game-play-state');
+    this.settingsBtn = document.querySelector('.setting-btn')
   }
 
   populateQuestionUi(question, questionNum) {
@@ -38,13 +41,13 @@ class UI {
   }
   addBtnClasses(target, correctAnswer) {
     correctAnswer = ui.replaceSpecialCharacters(correctAnswer);
-    
+
     if (target.textContent !== correctAnswer) {
       target.classList.remove('btn-info');
       target.classList.add('btn-danger');
     }
     this.answerBtns.forEach((btn) => {
-      btn.disabled ='true';
+      btn.disabled = 'true';
       if (btn.textContent === correctAnswer) {
         btn.classList.remove('btn-info');
         btn.classList.add('btn-success');
@@ -61,7 +64,7 @@ class UI {
       btn.classList.add('btn-info');
     });
   }
- 
+
   playSoundEffect(result) {
     const correct = new Audio('./audio/correct_answer.mp3');
     const incorrect = new Audio('./audio/wrong_answer.mp3');
@@ -75,29 +78,24 @@ class UI {
     this.score.textContent = score;
   }
   showAndHideNextQuestionButton() {
-    if (this.nextQuestion.classList.contains('hide')) {
-      this.nextQuestion.classList.remove('hide');
-    } else {
-      this.nextQuestion.classList.add('hide');
-    }
+    this.nextQuestion.classList.toggle('hide');
   }
-  hideShowStartScreen(){
+  hideShowStartScreen() {
     this.startScreen.classList.toggle('display-none');
   }
-  hideShowGameplayScreen(){
+  hideShowGameplayScreen() {
     this.gameplayScreen.classList.toggle('display-none');
+    this.settingsBtn.classList.toggle('display-none');
   }
   updateProgressBar() {
     const percentage =
       ((game.questionNumber + 1) / game.questions.length) * 100;
 
-    
     this.progress.style.width = `${percentage}%`;
     this.progressText.textContent = `Question ${game.questionNumber + 1} / ${
       game.questions.length
     }`;
   }
-  
 }
 
 export const ui = new UI();
