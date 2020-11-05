@@ -1,4 +1,5 @@
 import { ui } from './ui';
+import { api } from './api';
 
 class Game {
   constructor() {
@@ -6,11 +7,13 @@ class Game {
     this.questionNumber = 0;
     this.questionAmount;
     this.score = 0;
+    this.category;
   }
 
-  initiateGame(questions) {
+  initiateGame(questions, category) {
     this.questions = questions.results;
     this.questionAmount = ui.questionsAmount.value;
+    this.category = category;
   }
   nextQuestion() {
     this.questionNumber++;
@@ -26,6 +29,10 @@ class Game {
       ui.playSoundEffect('incorrect');
     }
     ui.updateScore(this.score);
+  }
+  resetGame(){
+    this.questionNumber = 0;
+    this.score = 0;
   }
 }
 

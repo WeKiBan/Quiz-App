@@ -16,7 +16,11 @@ class UI {
     );
     this.startScreen = document.querySelector('.start-screen-state');
     this.gameplayScreen = document.querySelector('.game-play-state');
+    this.endScreen = document.querySelector('.end-screen-state');
     this.settingsBtn = document.querySelector('.setting-btn')
+    this.playAgainBtn =document.querySelector('.play-again');
+    this.returnHomeBtn = document.querySelector('.return-home');
+    this.endScore = document.querySelector('.end-score');
   }
 
   populateQuestionUi(question, questionNum) {
@@ -95,6 +99,12 @@ class UI {
     this.progressText.textContent = `Question ${game.questionNumber + 1} / ${
       game.questions.length
     }`;
+  }
+  showHideEndScreen(){
+    this.endScreen.classList.toggle('display-none');
+  }
+  setScoreEndScreen(){
+    this.endScore.textContent = `${game.score}/${game.questionAmount}`;
   }
 }
 
