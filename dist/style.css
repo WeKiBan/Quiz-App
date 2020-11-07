@@ -10,19 +10,19 @@
 }
 
 .image-row {
-  height: 30vh;
+  height: 35vh;
+
 }
 
 .image-div {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1rem;
-  margin: 0.2rem;
   color: rgb(255, 255, 255);
-  font-size: 4vw;
+  font-size: 3.5vw;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
 }
 
 .image-div:hover {
@@ -32,12 +32,8 @@
 }
 
 .image-title{
-  width:100%;
-  height:100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+  padding:0 !important;
+  margin:0 !important;
 }
 
 .science {
@@ -97,8 +93,6 @@
 .display-none{
   display:none;
 }
-
-
 
 .answer-btn:disabled{
   opacity: 1;
