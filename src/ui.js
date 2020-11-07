@@ -15,7 +15,7 @@ class UI {
     this.questionsAmount = document.querySelector('#question-amount');
     this.difficulty = document.querySelector('#difficulty');
     this.categorySelections = Array.from(
-      document.querySelectorAll('.image-title')
+      document.querySelectorAll('.image-div')
     );
     this.startScreen = document.querySelector('.start-screen-state');
     this.gameplayScreen = document.querySelector('.game-play-state');
