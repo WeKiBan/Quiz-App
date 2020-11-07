@@ -1,0 +1,15 @@
+{
+  "background_color": "#282828",
+  "description": "QuizUp",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "images/quiz.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "name": "QuizUp",
+  "short_name": "QuizUp",
+  "start_url": "index.html"
+}
