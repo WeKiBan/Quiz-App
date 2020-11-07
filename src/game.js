@@ -58,8 +58,9 @@ class Game {
   setTimeout(){
     this.timeOut = setTimeout(()=> {
       ui.timeoutRevealAnswer();
-    }, 11000);
+    }, 10000);
   }
+  
   // Function to clear timeout
   cancelTimeOut(){
     // clear the timeout

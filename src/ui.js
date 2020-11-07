@@ -92,10 +92,12 @@ class UI {
 
   // function to reveal answer if timeout
   timeoutRevealAnswer() {
-     // set correct answer
-     const correctAnswer = this.replaceSpecialCharacters(game.questions[game.questionNumber].correct_answer);
+    // set correct answer
+    const correctAnswer = this.replaceSpecialCharacters(
+      game.questions[game.questionNumber].correct_answer
+    );
     // loop through each of the answer btns
-     this.answerBtns.forEach((btn) => {
+    this.answerBtns.forEach((btn) => {
       // disable the btns so they cant be clicked
       btn.disabled = 'true';
       // check if button has the correct answer
@@ -106,8 +108,20 @@ class UI {
         btn.classList.add('btn-success');
       }
     });
-    
-    this.showAndHideNextQuestionButton();
+    if (game.questionNumber + 1 < game.questionAmount) {
+      // if more questions remain show next question button
+      ui.showAndHideNextQuestionButton();
+    } else {
+      // if no more questions set timeout function 1 second
+      setTimeout(function () {
+        // hide the game play screen
+        ui.hideShowGameplayScreen();
+        // set end screen score
+        ui.setScoreEndScreen();
+        // show the end quiz screen
+        ui.showHideEndScreen();
+      }, 1000);
+    }
   }
 
   // function to remove any of the classes for correct or incorrect answers from btns
@@ -145,9 +159,7 @@ class UI {
     this.countdown.currentTime = 0;
   }
   // function to start timeout function countdown which reveals answers at finish
-  answerTimeoutStart() {
-    
-  }
+  answerTimeoutStart() {}
 
   // Function to update the score
   updateScore() {
