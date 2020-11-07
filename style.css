@@ -21,6 +21,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
+  font-size: 3vw;
 }
 
 .image-div:hover {
@@ -29,9 +30,7 @@
   border: 1px solid;
 }
 
-.image-title{
-  font-size: 3vw;
-}
+
 
 .science {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -98,7 +97,7 @@
 
 
 @media(max-width: 600px){
-  .image-title{
+  .image-div{
     font-size: 6vw;
   }
 }
