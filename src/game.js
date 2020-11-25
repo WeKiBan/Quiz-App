@@ -1,6 +1,5 @@
 // imported modules
 import { ui } from './ui';
-import { api } from './api';
 
 // CLASS FOR GAME
 class Game {
@@ -10,7 +9,7 @@ class Game {
     // current question number
     this.questionNumber = 0;
     // amount of questions in quiz
-    this.questionAmount;
+    this.questionAmount = 1;
     // score
     this.score = 0;
     // quiz category
@@ -23,8 +22,6 @@ class Game {
   initiateGame(questions, category) {
     // set current questions
     this.questions = questions.results;
-    // set amount of questions in quiz
-    this.questionAmount = ui.questionsAmount.value;
     // set quiz category
     this.category = category;
   }
@@ -55,14 +52,14 @@ class Game {
     ui.updateScore(this.score);
   }
   // set timeout
-  setTimeout(){
-    this.timeOut = setTimeout(()=> {
+  setTimeout() {
+    this.timeOut = setTimeout(() => {
       ui.timeoutRevealAnswer();
     }, 10000);
   }
-  
+
   // Function to clear timeout
-  cancelTimeOut(){
+  cancelTimeOut() {
     // clear the timeout
     clearTimeout(this.timeOut);
   }

@@ -1,13 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300&family=Open+Sans:wght@300&display=swap');
+
+
+
 .container {
   max-width: 900px;
 }
 
-.setting-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
+.start-screen-state {
+  position: relative;
 }
+
+.scores-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.scores-state {
+  height: 70vh;
+  position: relative;
+}
+
+th{
+  position: sticky; top: -0.1rem;
+  border: solid green 2px;
+}
+.table-container{
+  height: 47vh;
+  overflow: scroll;
+  border: grey solid 2px;
+  border-radius: 0.2rem;
+}
+
+.scores-btn-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
 
 .image-row {
   height: 35vh;
@@ -29,6 +60,14 @@
   border: 1px solid;
 }
 
+.image-container{
+  border: solid white 2px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  font-family: 'Mulish', sans-serif;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
 
 
 .science {
@@ -85,18 +124,24 @@
   position: relative;
 }
 
-.display-none{
-  display:none;
+.display-none {
+  display: none;
 }
 
-.answer-btn:disabled{
+.answer-btn:disabled {
   opacity: 1;
 }
 
-
-
-@media(max-width: 600px){
-  .image-div{
+@media (max-width: 600px) {
+  .image-div {
     font-size: 6vw;
+  }
+  .start-screen-state {
+    position: static;
+  }
+  .scores-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 }

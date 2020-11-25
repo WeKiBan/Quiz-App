@@ -2,8 +2,27 @@
 import { api } from './api';
 import { ui } from './ui';
 import { game } from './game';
+import { storage } from './storage';
 
 // EVENT LISTENERS
+
+// Event  listener to open high scores screen
+ui.scoresBtn.addEventListener('click', function () {
+  ui.hideShowStartScreen();
+  ui.hideShowScoresScreen();
+});
+
+// Event listener to go back from scores screen
+ui.scoresBackBtn.addEventListener('click', function () {
+  ui.hideShowStartScreen();
+  ui.hideShowScoresScreen();
+});
+
+// Event listener on clear scores btn
+ui.clearScoresBtn.addEventListener('click', function () {
+  storage.clearScoresHistory();
+  storage.saveToLocalStorage();
+});
 
 // Event listener for div containing answer buttons
 ui.answerBtnGroup.addEventListener('click', (e) => {
@@ -92,10 +111,10 @@ ui.playAgainBtn.addEventListener('click', function (e) {
     ui.showHideEndScreen();
     // show gameplay screen
     ui.hideShowGameplayScreen();
-     // start countdown timer
-     ui.playCountDownTimer();
-     // start timeout function
-     game.setTimeout();
+    // start countdown timer
+    ui.playCountDownTimer();
+    // start timeout function
+    game.setTimeout();
   });
 });
 

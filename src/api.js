@@ -1,20 +1,13 @@
 // Import modules
-import { ui } from './ui';
+import{ game } from './game'
 
 // Create api class
 class Api {
   // function to fetch quiz data
   async getQUizData(category) {
     // create apiurl variable
-    let apiURL;
-    // if difficulty setting is any
-    if (ui.difficulty.value === 'Any') {
-      // set api url to this
-      apiURL = `https://opentdb.com/api.php?amount=${ui.questionsAmount.value}&category=${category}&type=multiple`;
-    } else {
-      // otherwise set api url to this
-      apiURL = `https://opentdb.com/api.php?amount=${ui.questionsAmount.value}&category=${category}&difficulty=${ui.difficulty.value}&type=multiple`;
-    }
+    const apiURL = `https://opentdb.com/api.php?amount=${game.questionAmount}&category=${category}&type=multiple`;
+
     // fetch the data
     const response = await fetch(apiURL);
     // convert response to json

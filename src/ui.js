@@ -5,25 +5,32 @@ import { game } from './game';
 class UI {
   constructor() {
     // Query selectors for ui
-    this.question = document.querySelector('.question');
-    this.answerBtns = Array.from(document.querySelectorAll('.answer-btn'));
-    this.answerBtnGroup = document.querySelector('.answer-btn-group');
+    // querySelectors start state
+    this.startScreen = document.querySelector('.start-screen-state');
+    this.categorySelections = Array.from(
+      document.querySelectorAll('.image-div')
+    );
+    // querySelectors scores state
+    this.scoresBtn = document.querySelector('.scores-btn');
+    this.scoresState = document.querySelector('.scores-state');
+    this.scoresBackBtn = document.querySelector('.back-btn');
+    this.clearScoresBtn = document.querySelector('.clear-history-btn');
+
+    // querySelectors game state
+    this.gamePlayScreen = document.querySelector('.game-play-state');
     this.progress = document.querySelector('.progress-bar');
     this.progressText = document.querySelector('.progress-text');
     this.nextQuestion = document.querySelector('.next-question');
     this.score = document.querySelector('.score');
-    this.questionsAmount = document.querySelector('#question-amount');
-    this.difficulty = document.querySelector('#difficulty');
-    this.categorySelections = Array.from(
-      document.querySelectorAll('.image-div')
-    );
-    this.startScreen = document.querySelector('.start-screen-state');
-    this.gameplayScreen = document.querySelector('.game-play-state');
-    this.endScreen = document.querySelector('.end-screen-state');
-    this.settingsBtn = document.querySelector('.setting-btn');
+    this.question = document.querySelector('.question');
+    this.answerBtns = Array.from(document.querySelectorAll('.answer-btn'));
+    this.answerBtnGroup = document.querySelector('.answer-btn-group');
+
+    // querySelectors end state
     this.playAgainBtn = document.querySelector('.play-again');
     this.returnHomeBtn = document.querySelector('.return-home');
     this.endScore = document.querySelector('.end-score');
+    this.endScreen = document.querySelector('.end-screen-state');
 
     // Audio variables
     this.correct = new Audio('./audio/correct_answer.mp3');
@@ -177,8 +184,11 @@ class UI {
 
   // Function to hide and show gameplay screen
   hideShowGameplayScreen() {
-    this.gameplayScreen.classList.toggle('display-none');
-    this.settingsBtn.classList.toggle('display-none');
+    this.gamePlayScreen.classList.toggle('display-none');
+  }
+  // Function to hide and show high scores screen
+  hideShowScoresScreen() {
+    this.scoresState.classList.toggle('display-none');
   }
   // Function to show and hide end screen
   showHideEndScreen() {
