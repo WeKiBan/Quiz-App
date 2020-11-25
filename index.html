@@ -17,6 +17,7 @@
   <div class="container p-4 text-center">
     <!-- Start screen -->
     <div class="start-screen-state">
+      <a href="#" class="scores-btn btn btn-warning">Scores <i class="fas fa-trophy"></i></a>
       <h1 class="mb-4">QuizUp</h1>
       <div class="image-container">
         <div class="row image-row">
@@ -36,6 +37,89 @@
         </div>
       </div>
     </div>
+
+    <!-- SCORES -->
+    <div class="scores-state p-3 display-none">
+      <h1>High Scores</h1>
+      <div class="table-container tableFixHead">
+        
+        <table class="table table-dark">
+          <thead class="thead-light">
+            <tr class="table-row">
+              <th>#</th>
+              <th>Name</th>
+              <th>Catergory</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="container scores-btn-container">
+        <button class="back-btn btn btn-success px-5">Back</button>
+        <button class="clear-all-scores-btn btn btn-danger" data-toggle="modal" data-target="#clearHistoryModal">Clear
+          All
+          History</button>
+      </div>
+    </div>
+
 
     <!-- GAME PLAY  -->
     <div class="game-play-state display-none">
@@ -80,54 +164,28 @@
       <button class="btn-success btn btn-lg btn-block play-again">Play Again</button>
       <button class="btn-danger btn btn-lg btn-block return-home">Return to Home Screen </button>
     </div>
-
-
   </div>
 
-  <!-- Settings modal -->
-  <a class="setting-btn text-light" href="" data-toggle="modal" data-target="#exampleModalCenter"><i
-      class="fas fa-cog"></i></a>
-
-
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+  <!-- Clear History Confirm Modal -->
+  <div class="modal fade text-dark" id="clearHistoryModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content bg-dark text-white">
+      <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Game Settings</h5>
-          <button type="button" class="close mr-1" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"></span>
+          <h5 class="modal-title">Clear Scores</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="question-amount">Number of Questions</label>
-              <input type="number" class="form-control" id="question-amount" placeholder="Number of Questions"
-                value="2">
-            </div>
-            <div class="form-group">
-              <label for="difficulty">Difficulty</label>
-              <select class="form-control" id="difficulty" value="Any">
-                <option value="Any">Any</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-              </select>
-            </div>
-
-          </form>
+          <p>Are you sure you want to clear all history?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="reset btn btn-info">reset to default</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal">Save and close</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+          <button type="button" class="clear-history-btn btn btn-danger" data-dismiss="modal">Clear History</button>
         </div>
       </div>
     </div>
   </div>
-
-
-
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
