@@ -20,6 +20,14 @@
   height: 70vh;
   position: relative;
 }
+.empty-scores-message{
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1000;
+}
 
 th{
   position: sticky; top: -0.1rem;

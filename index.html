@@ -42,8 +42,8 @@
     <div class="scores-state p-3 display-none">
       <h1>High Scores</h1>
       <div class="table-container tableFixHead">
-        
-        <table class="table table-dark">
+        <div class="empty-scores-message">No Recorded Scores</div>
+        <table class="table table-dark text-capitalize">
           <thead class="thead-light">
             <tr class="table-row">
               <th>#</th>
@@ -52,7 +52,7 @@
               <th>Score</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="scores-table-body">
             <tr>
               <td>1</td>
               <td>Mark</td>
@@ -163,6 +163,7 @@
       <h1 class="pb-4">You Scored <span class="end-score">8 / 10</span></h1>
       <button class="btn-success btn btn-lg btn-block play-again">Play Again</button>
       <button class="btn-danger btn btn-lg btn-block return-home">Return to Home Screen </button>
+      <button class="btn-warning btn btn-lg btn-block return-home" data-toggle="modal" data-target="#saveScoreModal">Save Score </button>
     </div>
   </div>
 
@@ -182,6 +183,33 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
           <button type="button" class="clear-history-btn btn btn-danger" data-dismiss="modal">Clear History</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Save Score Modal -->
+  <div class="modal fade text-dark" id="saveScoreModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Submit Your Score</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="submit-score-form" name="submitScoreForm">
+            <div class="form-group">
+              <label for="name-input">Input Name</label>
+              <input type="text" id="name-input" class="form-control" placeholder="Name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+          <button for="submit-score-form" type="submit" class="submit-score-btn btn btn-danger" >Submit Score</button>
         </div>
       </div>
     </div>
