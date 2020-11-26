@@ -1,5 +1,6 @@
 // Imported modules
 import { game } from './game';
+import { storage } from './storage';
 
 // Create UI class
 class UI {
@@ -31,6 +32,13 @@ class UI {
     this.returnHomeBtn = document.querySelector('.return-home');
     this.endScore = document.querySelector('.end-score');
     this.endScreen = document.querySelector('.end-screen-state');
+
+    //query selectors scores and score modal
+    this.submitScoreBtn = document.querySelector('.submit-score-btn');
+    this.nameInput = document.querySelector('#name-input');
+    this.submitScoreForm = document.querySelector('.submit-score-form');
+    this.scoresTableBody = document.querySelector('.scores-table-body');
+    this.emptyScoresMessage = document.querySelector('.empty-scores-message');
 
     // Audio variables
     this.correct = new Audio('./audio/correct_answer.mp3');
@@ -194,8 +202,37 @@ class UI {
   showHideEndScreen() {
     this.endScreen.classList.toggle('display-none');
   }
+  // Function to set the score on the end screen
   setScoreEndScreen() {
     this.endScore.textContent = `${game.score}/${game.questionAmount}`;
+  }
+
+  // Function to render the scores table
+  renderScoresTable() {
+    // clear the table
+    this.scoresTableBody.innerHTML = '';
+    // get scores array
+    const scores = storage.highScores;
+    if ((scores.length === 0)) {
+      this.emptyScoresMessage.classList.remove('d-none');
+    } else {
+      this.emptyScoresMessage.classList.add('d-none');
+      // sort scores
+      scores.sort((a, b) => b.score - a.score);
+      // initiate counter
+      let count = 1;
+      // loop through scores array and render table
+      scores.forEach((score) => {
+        const row = document.createElement('tr');
+        row.innerHTML = ` 
+   <td>${count}</td>
+   <td>${score.name}</td>
+   <td>${score.category}</td>
+   <td>${score.score}</td>`;
+        this.scoresTableBody.appendChild(row);
+        count++;
+      });
+    }
   }
 
   // Function to update progress bar

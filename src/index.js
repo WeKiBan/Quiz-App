@@ -6,24 +6,6 @@ import { storage } from './storage';
 
 // EVENT LISTENERS
 
-// Event  listener to open high scores screen
-ui.scoresBtn.addEventListener('click', function () {
-  ui.hideShowStartScreen();
-  ui.hideShowScoresScreen();
-});
-
-// Event listener to go back from scores screen
-ui.scoresBackBtn.addEventListener('click', function () {
-  ui.hideShowStartScreen();
-  ui.hideShowScoresScreen();
-});
-
-// Event listener on clear scores btn
-ui.clearScoresBtn.addEventListener('click', function () {
-  storage.clearScoresHistory();
-  storage.saveToLocalStorage();
-});
-
 // Event listener for div containing answer buttons
 ui.answerBtnGroup.addEventListener('click', (e) => {
   // check if clicked target is answer button
@@ -130,4 +112,85 @@ ui.returnHomeBtn.addEventListener('click', function () {
   ui.showHideEndScreen();
   // show start screen
   ui.hideShowStartScreen();
+});
+
+// add event listener for submit score modal on submit score btn
+ui.submitScoreForm.addEventListener('submit', function (e) {
+  ui.submitScoreBtn.click();
+  e.preventDefault();
+});
+
+ui.submitScoreBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  // get name value from input
+  const name = ui.nameInput.value;
+  const score = game.score;
+  let category;
+  // check if name input is empty
+  if (name === '') {
+    alert('must insert name');
+    return;
+  }
+
+  // Get category name
+  if (game.category == 21) {
+    category = 'Sports';
+  } else if (game.category == 17) {
+    category = 'Science & Nature';
+  } else if (game.category == 9) {
+    category = 'General Knowledge';
+  } else {
+    category = 'Film';
+  }
+  // add the score data;
+  storage.addHighScore(name, score, category);
+
+  // save scores to local storage
+  storage.saveToLocalStorage();
+
+  // Reset input value
+  ui.nameInput.value = '';
+
+  // render the scores table
+  ui.renderScoresTable();
+
+  //close the modal with jquery
+  $('#saveScoreModal').modal('hide');
+
+  // reset the game back to start state
+  game.resetGame();
+
+  // remove the classes showing answer and incorrect answer on btns
+  ui.removeBtnClasses();
+
+  // update the game score
+  ui.updateScore();
+
+  //  show high scores screen hide end screen
+  ui.showHideEndScreen();
+  ui.hideShowScoresScreen();
+});
+
+
+// Event  listener to open high scores screen
+ui.scoresBtn.addEventListener('click', function () {
+  ui.renderScoresTable();
+  ui.hideShowStartScreen();
+  ui.hideShowScoresScreen();
+});
+
+// Event listener to go back from scores screen
+ui.scoresBackBtn.addEventListener('click', function () {
+  ui.hideShowStartScreen();
+  ui.hideShowScoresScreen();
+});
+
+// Event listener on clear scores btn
+ui.clearScoresBtn.addEventListener('click', function () {
+  // clear the scores history 
+  storage.clearScoresHistory();
+  // save everything to local storage 
+  storage.saveToLocalStorage();
+  // re render the scores table
+  ui.renderScoresTable();
 });

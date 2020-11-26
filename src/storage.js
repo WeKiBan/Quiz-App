@@ -7,12 +7,12 @@ class Storage {
       JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_LIST_KEY)) || [];
   }
   // Function to add score
-  addHighScore(score, category, date) {
+  addHighScore(name, score, category) {
     // create score object
     const scoreData = {
+      name,
       score,
       category,
-      date,
     };
     // push score to high scores array
     this.highScores.push(scoreData);
