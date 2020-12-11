@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300&family=Open+Sans:wght@300&display=swap');
 
 
-
 .container {
   max-width: 900px;
 }
@@ -20,7 +19,7 @@
   height: 70vh;
   position: relative;
 }
-.empty-scores-message{
+.empty-scores-message {
   position: absolute;
   top: 10rem;
   left: 50%;
@@ -29,11 +28,12 @@
   z-index: 1000;
 }
 
-th{
-  position: sticky; top: -0.1rem;
+th {
+  position: sticky;
+  top: -0.1rem;
   border: solid green 2px;
 }
-.table-container{
+.table-container {
   height: 47vh;
   overflow: scroll;
   border: grey solid 2px;
@@ -46,7 +46,6 @@ th{
   justify-content: space-between;
   margin-top: 2rem;
 }
-
 
 .image-row {
   height: 35vh;
@@ -68,7 +67,7 @@ th{
   border: 1px solid;
 }
 
-.image-container{
+.image-container {
   border: solid white 2px;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -76,7 +75,6 @@ th{
   letter-spacing: 3px;
   font-weight: 300;
 }
-
 
 .science {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
