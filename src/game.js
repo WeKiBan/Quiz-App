@@ -9,7 +9,7 @@ class Game {
     // current question number
     this.questionNumber = 0;
     // amount of questions in quiz
-    this.questionAmount = 3;
+    this.questionAmount = 10;
     // score
     this.score = 0;
     // quiz category
